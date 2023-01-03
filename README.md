@@ -42,4 +42,22 @@ sudo apt install jenkins
 http://localhost:8080
 ````
 
+## schedule
+
+````
+pipeline {
+  agent any
+  schedule '0 2 * * *'
+  stages {
+    stage('Build') {
+      steps {
+        // your build steps go here
+      }
+    }
+  }
+}
+````
+
+
+
 ### https://pkg.jenkins.io/debian-stable/
