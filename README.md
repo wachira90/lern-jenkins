@@ -61,3 +61,5 @@ pipeline {
 
 
 ### https://pkg.jenkins.io/debian-stable/
+
+### https://www.jenkins.io/doc/pipeline/tour/hello-world/
