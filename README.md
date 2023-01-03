@@ -17,6 +17,8 @@ wget https://get.jenkins.io/war-stable/2.375.1/jenkins.war
 java -jar jenkins.war
 
 java -jar jenkins.war --httpPort=9090
+
+java -jar jenkins.war --httpPort=9090 & > 2 &
 ````
 
 ## install from source
