@@ -19,6 +19,8 @@ java -jar jenkins.war
 java -jar jenkins.war --httpPort=9090
 
 java -jar jenkins.war --httpPort=9090 & > 2 &
+
+java -jar jenkins.war --httpPort=9090 > log-$(date '+%Y-%m-%d').log 2>&1 &
 ````
 
 ## install from source
