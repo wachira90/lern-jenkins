@@ -12,7 +12,7 @@ sudo apt install fontconfig openjdk-11-jre
 ## download run jenkins
 
 ````
-wget https://get.jenkins.io/war-stable/2.375.1/jenkins.war
+wget https://get.jenkins.io/war-stable/2.387.2/jenkins.war
 
 java -jar jenkins.war
 
@@ -21,6 +21,9 @@ java -jar jenkins.war --httpPort=9090
 java -jar jenkins.war --httpPort=9090 & > 2 &
 
 java -jar jenkins.war --httpPort=9090 > log-$(date '+%Y-%m-%d').log 2>&1 &
+
+# THIS OK
+java -jar jenkins.war --httpPort=30001 > log-$(date '+%Y-%m-%d').log > /dev/null &>2 &
 ````
 
 ## install from source
