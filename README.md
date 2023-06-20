@@ -66,6 +66,8 @@ pipeline {
 
 ## reset build number
 
+http://myurl-jenkins:3000/script
+
 ```groovy
 item = Jenkins.instance.getItemByFullName("golang-version")
 item.builds.each() { 
