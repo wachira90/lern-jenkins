@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    stages {
+        
+        stage('CHECK FOLDER') {
+            steps {
+                ws('/home/docker/.jenkins/workspace/_test/jenkins-node/') {
+                    sh 'ls -la'
+                    sh 'node -v'
+                    sh 'yarn install'
+                }
+            }
+        }
+        
+        stage('RESTART PM2') {
+            steps {
+                ws('/home/docker/.jenkins/workspace/_test/jenkins-node/') {
+//                    sh 'ls -la'
+                    sh 'pm2 ls'
+                    sh 'pm2 restart app001'
+                    sh 'pm2 ls'
+                }
+            }
+        }        
+        
+    }
+}
