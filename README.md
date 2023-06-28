@@ -76,6 +76,16 @@ item.builds.each() {
 item.updateNextBuildNumber(1)
 ```
 
+## python request for trigger api
+
+```py
+import requests
+url = 'http://api.example.com:8081/job/jenkins-golang/build?token=golang'
+auth = ('wachira', '112ac14xxxxxxxxxx')
+response = requests.get(url, auth=auth)
+print(response.status_code)
+```
+
 ### https://pkg.jenkins.io/debian-stable/
 
 ### https://www.jenkins.io/doc/pipeline/tour/hello-world/
