@@ -1,6 +1,16 @@
 pipeline {
+    
     agent any
+    
     stages {
+
+        stage('GIT PULL') {
+            steps {
+                ws('/home/docker/.jenkins/workspace/_test/jenkins-node/') {
+                    sh 'git pull'
+                }
+            }
+        }
         
         stage('CHECK FOLDER') {
             steps {
