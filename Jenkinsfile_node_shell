@@ -1,0 +1,36 @@
+pipeline {
+    
+    agent any
+    
+    stages {
+
+        stage('GIT PULL') {
+            steps {
+                ws('/home/docker/_test/gitlab-node/') {
+                    sh 'git pull'
+                }
+            }
+        }
+        
+        stage('CHECK FOLDER') {
+            steps {
+                ws('/home/docker/_test/gitlab-node/') {
+                    sh 'ls -la'
+                    sh 'node -v'
+                    sh 'yarn install'
+                }
+            }
+        }
+        
+        stage('RESTART PM2') {
+            steps {
+                ws('/home/docker/_test/gitlab-node/') {
+                    sh 'pm2 ls'
+                    sh 'pm2 restart app9999'
+                    sh 'pm2 ls'
+                }
+            }
+        }        
+        
+    }
+}
