@@ -1,37 +1,47 @@
 pipeline {
-    
-    agent any
-    
-    stages {
+    agent {
+        docker {
+                image 'node:16.13.2'
+                args '-v ${WORKSPACE}/.cache/:/.cache/:rw --network=host'
+            }
+    }
 
-        stage('GIT PULL') {
+    stages {
+        
+        stage('CHECK VERSION') {
             steps {
-                ws('/home/docker/.jenkins/workspace/_test/jenkins-node/') {
-                    sh 'git pull'
-                }
+                sh 'node -v'
+                sh 'yarn -v'
+                sh 'pwd'
+//                sh 'chmod 0775 .cache/'
+            }
+        }
+
+        stage('DELETE MODULE') {
+            steps {
+                sh 'rm -rf node_modules/'
+                sh 'ls -la'
             }
         }
         
-        stage('CHECK FOLDER') {
+        stage('INSTALL') {
             steps {
-                ws('/home/docker/.jenkins/workspace/_test/jenkins-node/') {
-                    sh 'ls -la'
-                    sh 'node -v'
-                    sh 'yarn install'
-                }
+                sh 'yarn install'
+            }
+        }
+
+        stage('CHECK') {
+            steps {
+                sh 'ls -la'
             }
         }
         
-        stage('RESTART PM2') {
+        stage('SUCCESS') {
             steps {
-                ws('/home/docker/.jenkins/workspace/_test/jenkins-node/') {
-//                    sh 'ls -la'
-                    sh 'pm2 ls'
-                    sh 'pm2 restart app001'
-                    sh 'pm2 ls'
-                }
+//                sh 'test success $WORKSPACE'
+                sh 'exit'
             }
-        }        
+        }
         
     }
 }
