@@ -13,7 +13,7 @@ sudo apt install fontconfig openjdk-11-jre
 ## download run jenkins
 
 ```sh
-wget https://get.jenkins.io/war-stable/2.387.2/jenkins.war
+wget https://get.jenkins.io/war-stable/2.401.2/jenkins.war
 
 java -jar jenkins.war
 
