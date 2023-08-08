@@ -23,6 +23,8 @@ java -jar jenkins.war --httpPort=9090 & > 2 &
 
 java -jar jenkins.war --httpPort=9090 > log-$(date '+%Y-%m-%d').log 2>&1 &
 
+java -jar jenkins.war --httpPort=9090 > /dev/null &
+
 # THIS OK
 java -jar jenkins.war --httpPort=30001 > log-$(date '+%Y-%m-%d').log > /dev/null &>2 &
 ```
