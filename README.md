@@ -29,6 +29,13 @@ java -jar jenkins.war --httpPort=9090 > /dev/null &
 java -jar jenkins.war --httpPort=30001 > log-$(date '+%Y-%m-%d').log > /dev/null &>2 &
 ```
 
+## run bat on windows
+
+```bat
+CD C:\Program Files\Java\jdk-18.0.1.1\bin
+START java.exe -jar D:\wachira\jenkins\jenkins.war --httpPort=10010 --enable-future-java
+```
+
 ## install from source
 
 ```sh
