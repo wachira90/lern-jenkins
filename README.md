@@ -95,6 +95,25 @@ response = requests.get(url, auth=auth)
 print(response.status_code)
 ```
 
+## basic build jenkins 
+
+```Dockerfile
+FROM  openjdk:17-jdk-alpine3.14
+RUN apk add --no-cache freetype fontconfig ttf-dejavu
+WORKDIR /app
+EXPOSE 8080
+COPY jenkins.war /app/jenkins.war
+CMD java -jar /app/jenkins.war --httpPort=8080
+```
+
+## run 
+
+```
+docker run -it --name jenkins -p 8001:8080 wachiradu/jenkins:2.426.2
+
+http://localhost:8001
+```
+
 ### https://pkg.jenkins.io/debian-stable/
 
 ### https://www.jenkins.io/doc/pipeline/tour/hello-world/
